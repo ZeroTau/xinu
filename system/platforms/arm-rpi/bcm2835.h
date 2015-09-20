@@ -1,4 +1,4 @@
-/**
+ /**
  * @file bcm2835.h
  *
  * Definitions specific to the BCM2835 SoC used in the Raspberry Pi.
@@ -18,7 +18,11 @@
  ********************************************************************/
 
 /* Start of memory-mapped peripherals address space  */
+#ifdef BCM2836
+#define PERIPHERALS_BASE 0x3f000000
+#else
 #define PERIPHERALS_BASE 0x20000000
+#endif
 
 /* System timer  */
 #define SYSTEM_TIMER_REGS_BASE (PERIPHERALS_BASE + 0x3000)

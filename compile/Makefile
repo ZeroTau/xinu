@@ -22,9 +22,11 @@ BOOTIMAGE := xinu.boot
 # Top-level Embedded Xinu directory
 TOPDIR  := ..
 
+XFLAGS =
+
 # Set the C compilation flags common to all Embedded Xinu platforms.
 # platformVars can add more flags if desired.
-CFLAGS  :=
+CFLAGS  := $(XFLAGS)
 
 # Do not perform linking until the end.
 CFLAGS  += -c
@@ -316,6 +318,7 @@ clean:
 	@echo -e "\tCleaning all objects"
 	rm -f *.o $(COMP_OBJ) $(CONF_OBJ) $(MAIN_OBJ) $(DATA_OBJ) $(USRTHRS_OBJ)
 	rm -f $(DEPFILES)
+	rm -f include/version.h
 	rm -f xinu.boot xinu.bin xinu.elf
 
 indent:
